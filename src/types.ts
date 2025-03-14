@@ -3,6 +3,8 @@ export interface Zone {
   name: string;
   active: boolean;
   schedule: Schedule[];
+  moisture: number; // procenat vlažnosti (0-100)
+  moistureHistory: MoistureReading[];
 }
 
 export interface Schedule {
@@ -21,4 +23,14 @@ export interface WateringSession {
   endTime: Date;
   waterUsage: number; // in liters
   automatic: boolean;
+}
+
+export interface MoistureReading {
+  timestamp: Date;
+  value: number;
+}
+
+export interface SystemStatus {
+  waterPressure: number; // pritisak vode u barima
+  isLowPressure: boolean;
 }
